@@ -1,0 +1,17 @@
+<h1>Recipes for <%= @food%></h1>
+
+<table border='1'>
+	<tr>
+		<th></th>
+		<th>Recipe</th>
+		<th>Ingredients</th>
+	</tr>
+	<% @recs.each do |rec| %>
+	<tr class="<%= cycle('even', 'odd') %>">
+		<td><%= link_to image_tag(rec["thumbnail"]), rec["link"], class: "special link"%></td>
+		<td><%=link_to sanitize(rec["title"]),rec["link"], class: "special link" %></td>
+		<td><%= sanitize(rec["ingredients"])  %></td>
+		
+	</tr>
+	<% end %>
+</table>
